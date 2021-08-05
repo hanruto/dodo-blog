@@ -1,5 +1,5 @@
 #！ /bin/bash
-cd /project/dodo-blog
+cd /projects/dodo-blog
 
 git checkout .
 

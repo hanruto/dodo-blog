@@ -1,97 +1,45 @@
 {
-  "devFiles": [],
+  "polyfillFiles": [
+    "static/chunks/polyfills.js"
+  ],
+  "devFiles": [
+    "static/chunks/react-refresh.js"
+  ],
+  "ampDevFiles": [
+    "static/chunks/webpack.js",
+    "static/chunks/amp.js"
+  ],
+  "lowPriorityFiles": [
+    "static/development/_buildManifest.js",
+    "static/development/_ssgManifest.js"
+  ],
   "pages": {
     "/": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/chunks/pages/_app.js"
     ],
     "/_error": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/chunks/pages/_error.js"
     ],
-    "/_polyfills": [
-      "static/runtime/polyfills-55f6359d9eba66f2b123.js"
-    ],
-    "/blog": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/contact": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/home": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/index": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/robot": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/robot/components/ChatHead": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/robot/components/ChatInput": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/robot/components/ChatPanel": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/robot/components/Loading": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
-    ],
-    "/robot/components/SelectsPanel": [
-      "static/runtime/webpack-4b444dab214c6491079c.js",
-      "static/chunks/commons.f5b982e5c6b77650b8f8.js",
-      "static/css/styles.9780294b.chunk.css",
-      "static/chunks/styles.e1c3f35a2cd8434848ab.js",
-      "static/runtime/main-29c50554657202c4c57d.js"
+    "/blog/[id]": [
+      "static/chunks/main.js",
+      "static/chunks/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/chunks/pages/blog/[id].js"
     ]
-  }
+  },
+  "ampFirstPages": []
 }

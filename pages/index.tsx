@@ -3,17 +3,20 @@ import Link from 'next/link'
 import Head from 'next/head'
 import dayjs from 'dayjs'
 import { connect } from 'react-redux'
-import Logo from '../../components/Logo'
-import AnimateQueue from '../../components/AnimateQueue'
-import ScrollDetect from '../../components/ScrollDetect'
-import LoadingText from '../../components/LoadingText'
-import store from '../../store'
-import { track } from '../../utils/common'
+import AnimateQueue from '../components/AnimateQueue'
+import ScrollDetect from '../components/ScrollDetect'
+import LoadingText from '../components/LoadingText'
+import store from '../store'
+import { track } from '../utils/common'
 import './index.scss'
 
 const PAGE_SIZE = 15
 
-type BlogItemType = { type: 'date' | 'blog'; title: string; id: string }
+type BlogItemType = { 
+  type: 'date' | 'blog'; 
+  title: string; 
+  id: string;
+}
 
 const sortBlog = (blogArr: { created: Date; title: string; _id: string }[]) => {
   const list: BlogItemType[] = []
@@ -21,7 +24,7 @@ const sortBlog = (blogArr: { created: Date; title: string; _id: string }[]) => {
   let currentGroupCreated = ''
 
   blogArr.forEach(item => {
-    const created = dayjs(item.created).format('YYYY / MM')
+    const created = dayjs(item.created).format('YYYY年MM月')
 
     if (created !== currentGroupCreated) {
       currentGroupCreated = created
@@ -46,7 +49,7 @@ const BlogItem = (props: {
     </div>
   ) : (
     <div className="blog-item" style={style}>
-      <Link href={`/blog?id=${blog.id}`}>
+      <Link href={`/blog/${blog.id}`}>
         <a className="page-common-blog-title">{blog.title}</a>
       </Link>
     </div>
@@ -104,7 +107,6 @@ function BlogListPage(props) {
       <Head>
         <title>小寒的博客-博客列表</title>
       </Head>
-      <Logo />
       <ScrollDetect onScrollOut={handleLoadMore} protectTime={2000}>
         {list.slice(0, renderedBlogListNumber).map(item => {
           return <BlogItem key={item.id} info={item} />

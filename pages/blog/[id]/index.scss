@@ -4,7 +4,8 @@ $primary-color: #39f;
 
 .blog-detail-page {
   .page-common-blog-title {
-    margin-bottom: 0.4em;
+    margin-bottom: 0.6em;
+    margin-top: 48px;
   }
 
   .blog-created {
@@ -20,22 +21,19 @@ $primary-color: #39f;
   .blog-comment-form {
     width: 100%;
     overflow: hidden;
-
-    input,
-    textarea {
-      margin-bottom: 15px;
-    }
+    display: flex;
 
     button {
       float: right;
+      flex-shrink: 0;
+      margin-left: 12px;
     }
   }
 
-  .blog-nickname-input {
-    flex-shrink: 0;
-    margin-right: 10px;
+  .blog-comment-input {
     transition: all ease 0.3s;
     opacity: 1;
+    color: #4a4a4a;
 
     &.hidden {
       width: 0;
@@ -47,24 +45,18 @@ $primary-color: #39f;
 
   @media screen and (max-width: 750px) {
     .blog-comment-form {
-      display: block;
-
-      input,
-      button {
-        margin-bottom: 15px;
-        width: 100%;
-      }
-
-      .blog-nickname-input {
+      .blog-comment-input {
         &.hidden {
           display: none;
         }
       }
-    }
-  }
 
-  .blog-comment-input {
-    margin-right: 10px;
+      button {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 12px;
+      }
+    }
   }
 
   .blog-content {

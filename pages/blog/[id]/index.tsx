@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import dayjs from 'dayjs'
 import Head from 'next/head'
-import Logo from '../../components/Logo'
-import AnimateQueue from '../../components/AnimateQueue'
-import CommentList from '../../components/CommentList'
-import Footer from '../../components/Footer'
-import { track } from '../../utils/common'
-import store from '../../store'
+import AnimateQueue from '../../../components/AnimateQueue'
+import CommentList from '../../../components/CommentList'
+import Footer from '../../../components/Footer'
+import { track } from '../../../utils/common'
+import store from '../../../store'
 import './index.scss'
 
 interface Props {
@@ -53,21 +52,16 @@ function BlogDetailPage(props: Props) {
     setComment(e.target.value)
   }
 
-  const handleNicknameChange = e => {
-    setNickname(e.target.value)
-  }
-
   return (
     <div className="blog-detail-page page-common-container">
       <Head>
         <title>{`${blog ? blog.title : '博客找不到了'}-小寒的博客`}</title>
       </Head>
-      <Logo />
       {blog ? (
-        <AnimateQueue animate={true}>
+        <AnimateQueue animate={true} speed={300} interval={100}>
           <h2 className="page-common-blog-title">{blog.title}</h2>
           <div className="blog-created">
-            {dayjs(blog.created).format('YYYY / MM / DD')}
+            {dayjs(blog.created).format('YYYY年MM月DD日')}
           </div>
           <div
             className="blog-content"
@@ -81,32 +75,27 @@ function BlogDetailPage(props: Props) {
       <div className="page-common-section-title">写评论</div>
       <div className="blog-comment-form">
         <input
-          maxLength={6}
+          maxLength={100}
           type="text"
-          className="blog-nickname-input"
-          placeholder="名字或者昵称"
-          onChange={handleNicknameChange}
-        />
-        <textarea
-          maxLength={150}
-          value={comment}
-          onChange={handleCommentChange}
           className="blog-comment-input"
-          placeholder="写点什么吧..."
+          placeholder="写下你的评论..."
+          onChange={handleCommentChange}
         />
         <button
           className="blog-comment-submit-button"
           onClick={handleCommentSubmit}
-          disabled={!comment || !nickname}
+          disabled={!comment}
         >
-          评论
+          发布
         </button>
       </div>
 
-      <div className="page-common-section-title comment-list-title">
-        全部评论
-      </div>
-      <CommentList comments={comments.list} />
+      {comments.list && !!comments.list.length && 
+        <>
+          <div className="page-common-section-title comment-list-title">全部评论</div>
+          <CommentList comments={comments.list} />
+        </>
+      }
 
       <Footer />
     </div>

@@ -20,7 +20,7 @@ export default class ScrollDetect extends React.Component<Props> {
     window.addEventListener('scroll', this.handleDetect)
   }
 
-  componentWillUnmount() {
+  componentWillUnMount() {
     window.removeEventListener('scroll', this.handleDetect)
     clearTimeout(this.taskTimer)
   }
@@ -34,11 +34,10 @@ export default class ScrollDetect extends React.Component<Props> {
   }
 
   handleDetect = () => {
-    if (this.loading || this.protecting) return false
+    if (this.loading || this.protecting || !this.el.current) return false
 
     const { protectTime = 0, loadingTime = 0, onScrollOut } = this.props
-    const { bottom } =
-      this.el.current && this.el.current.getBoundingClientRect()
+    const { bottom } = this.el.current.getBoundingClientRect()
 
     if (bottom < window.innerHeight + 100) {
       this.loading = true

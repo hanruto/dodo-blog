@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-const defaultSpeed = 600
-const defaultInterval = 200
+const defaultSpeed = 400
+const defaultInterval = 150
 
 interface Props {
   animate?: boolean

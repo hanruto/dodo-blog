@@ -6,17 +6,27 @@ import ChatHead from './components/ChatHead'
 import Head from 'next/head'
 import Router from 'next/router'
 import { track } from '../../utils/common'
+import Navigator from '../../components/Navigator'
+import { isPC } from '../../utils/common';
 import './index.scss'
 
 function Robot(props){
   const { currentChat, initChat, clearChats, robotReply, getSelects } = props
 
   useEffect(() => {
-    track('enter-chat', 'route-change')
-
     const key = Router.query.key || 'default'
-    initChat(key)
-    return () => clearChats()
+
+    track('enter-chat', 'route-change')
+    initChat(key);
+
+    if(!isPC()) {
+      document.body.style.background = '#e0f1fc'
+    }
+
+    return () => {
+      clearChats()
+      document.body.style.background = '#fff'
+    }
   }, [])
 
   useEffect(() => {
@@ -29,7 +39,8 @@ function Robot(props){
     if(currentChat.role === 'robot') {
       getSelects(currentChat.chatId)
     }
-    
+
+    window.scrollTo(0, document.body.offsetHeight);
   }, [currentChat])
 
   return (
@@ -38,8 +49,11 @@ function Robot(props){
         <title>和小寒聊天</title>
       </Head>
       <div className="robot-page">
+        <Navigator />
+
         <div className="robot-panel">
-          <ChatHead/>
+          <ChatHead />
+          {/* @ts-ignore */}
           <ChatPanel/>
           <ChatInput/>
         </div>

@@ -9,7 +9,6 @@ import './index.scss'
 const links = [
   { text: '主页', href: '/home' },
   { text: '博客', href: '/' },
-  { text: '留言板', href: '/contact' },
   { text: '和小寒聊天', href: '/robot' },
 ]
 
@@ -31,8 +30,7 @@ export default function Navigator() {
     setCollapsed(!collapsed)
   }
 
-  const caculatePostion = () => {
-    console.log('calc')
+  const calculatePosition = () => {
     if ($toggle.current) {
       const toggle = $toggle.current
       const { offsetTop, offsetLeft, offsetHeight, offsetWidth } = toggle
@@ -57,21 +55,21 @@ export default function Navigator() {
   }
 
   useEffect(() => {
-    let debouceCalc = debounce(caculatePostion, 300)
+    let debounceCalc = debounce(calculatePosition, 300)
 
-    window.addEventListener('resize', debouceCalc)
+    window.addEventListener('resize', debounceCalc)
 
     Router.events.on('routeChangeComplete', () => {
       setCollapsed(true)
     })
 
     return () => {
-      window.removeEventListener('resize', debouceCalc)
+      window.removeEventListener('resize', debounceCalc)
     } 
   }, [])
 
   useEffect(() => {
-    caculatePostion()
+    calculatePosition()
 
     if ($panel.current) {
       const panel = $panel.current
@@ -101,6 +99,7 @@ export default function Navigator() {
       >
         <Icon type={collapsed ? 'menu' : 'close'} />
       </div>
+
       <div
         ref={$panel}
         className={classnames('navigator-panel', collapsed ? 'hidden' : 'show')}

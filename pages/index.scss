@@ -3,9 +3,10 @@
     font-size: 14px;
     font-weight: 700;
     margin-top: 45px;
+    color: #999;
 
     &:first-child {
-      margin-top: 0px;
+      margin-top: 48px;
     }
 
     @media screen and (max-width: 750px) {

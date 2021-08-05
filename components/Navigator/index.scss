@@ -4,8 +4,8 @@
   &-collapsed-menu {
     position: fixed;
     z-index: 1;
-    right: 45px;
-    top: 45px;
+    right: 36px;
+    top: 36px;
     width: 30px;
     height: 30px;
     z-index: 53;
@@ -20,8 +20,8 @@
     }
 
     @media screen and (max-width: 750px) {
-      right: 24px;
-      top: 33px;
+      right: 18px;
+      top: 18px;
       width: 24px;
       height: 24px;
 
@@ -39,7 +39,13 @@
 
   &:hover {
     .navigator-panel {
-      background-color: #eee;
+      &.hidden {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      &.show {
+        background-color: #ddd;
+      }
     }
   }
 
@@ -49,13 +55,13 @@
     z-index: 51;
     transition: all ease 0.45s;
     border-radius: 50%;
-    right: 35px;
-    top: 35px;
-    width: 50px;
-    height: 50px;
+    right: 36px;
+    top: 36px;
+    width: 36px;
+    height: 36px;
 
     &.show {
-      background-color: #eee;
+      background-color: #ddd;
     }
 
     @media screen and (max-width: 750px) {
@@ -83,7 +89,7 @@
       display: inline-block;
       margin: 15px 0;
       text-decoration: none;
-      color: #222;
+      color: #2c2c2c;
       transition: all ease 0.15s;
       position: relative;
       width: 100px;
@@ -95,7 +101,7 @@
     }
 
     &.show a {
-      animation: show-animation 0.5s ease 0.3s forwards;
+      animation: show-animation 0.3s ease 0.2s forwards;
 
       &:nth-child(4n + 1) {
         animation-delay: 0.25s;

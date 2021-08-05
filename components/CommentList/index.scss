@@ -1,5 +1,5 @@
 .no-comment {
-  color: #666;
+  color: #999;
 }
 
 .comment-list {
@@ -8,10 +8,21 @@
 
   .comment-item {
     list-style-type: none;
-    padding: 1.1em 0;
+    padding: 1.6em 0;
+    position: relative;
 
-    & + .comment-item {
-      border-top: 1px solid #ddd;
+    &::after {
+      content: '';
+      height: 1px;
+      transform: scaleY(0.5);
+      width: 100%;
+      background-color: #ddd;
+      position: absolute;
+      bottom: 0;
+    }
+
+    &:first-child {
+      padding-top: 12px;
     }
 
     .comment-nickname {
@@ -22,9 +33,9 @@
     }
 
     .comment-created {
-      font-size: 12px;
+      font-size: 14px;
       color: #aaa;
-      margin-bottom: 1em;
+      margin-bottom: 0.8em;
     }
 
     .comment-content {

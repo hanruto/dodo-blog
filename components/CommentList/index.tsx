@@ -17,14 +17,14 @@ export default function CommentList(props: Props) {
   if (!comments || !comments.length) {
     return <div className="no-comment">暂无评论</div>
   }
+
   return (
     <ul className="comment-list">
-      {comments.map(item => {
+      {comments.map((item, index) => {
         return (
           <li key={item._id} className="comment-item">
-            <div className="comment-nickname">{item.nickname}</div>
             <div className="comment-created">
-              {dayjs(item.created).format('YYYY.MM.DD HH:mm')}
+              {index + 1}楼：{dayjs(item.created).format('MM月DD HH:mm')}
             </div>
             <div className="comment-content">{item.content}</div>
           </li>

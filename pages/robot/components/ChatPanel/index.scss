@@ -17,9 +17,11 @@
   margin-top: 60px;
 
   @media screen and (max-width: 750px) {
-    height: calc(100vh - 120px);
-    height: calc(100vh - 120px - constant(safe-area-inset-bottom));
-    height: calc(100vh - 120px - env(safe-area-inset-bottom));
+    height: auto;
+    padding-bottom: calc(120px + constant(safe-area-inset-bottom));
+    padding-bottom: calc(120px + env(safe-area-inset-bottom));
+    // height: calc(100vh - 120px - constant(safe-area-inset-bottom));
+    // height: calc(100vh - 120px - env(safe-area-inset-bottom));
   }
 
   &::-webkit-scrollbar{
@@ -61,6 +63,8 @@
       }
 
       .chat-content {
+        color: #4a4a4a;
+        
         img {
           max-width: 100%;
           display: block;
