@@ -85,7 +85,10 @@
           border-radius: 15px 0px 15px 15px;
           display: inline-block;
           background-color: #39f;
-          color: #fff;
+         
+          .chat-content {
+            color: #fff;
+          }
         }
       }
 
